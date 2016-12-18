@@ -10,3 +10,15 @@
 	font-weight: 700;
 	font-size: 16px;
 }
+
+.panel-body img{
+	max-width: 100%;
+}
+
+.panel-body .description{
+	margin-top: 1em;
+}
+
+.panel-body select{
+	margin: 0.5em 0;
+}

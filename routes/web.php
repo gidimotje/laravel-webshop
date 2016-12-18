@@ -16,6 +16,11 @@ Route::get('/', [
 	'as' => 'product.index'
 ]);
 
+Route::get('/product/{id}', [
+	'uses' => 'ProductController@getProduct',
+	'as' => 'product.product'
+]);
+
 Route::get('/add-to-cart/{id}', [
 	'uses' => 'ProductController@getAddToCart',
 	'as' => 'product.addToCart'

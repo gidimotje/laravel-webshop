@@ -21,6 +21,14 @@ class ProductController extends Controller
 		]);
     }
 
+    public function getProduct($id)
+    {
+        $product = Product::where('id', $id)->first();
+        return view('shop.product', [
+            'product' => $product
+        ]);
+    }
+
     public function getAddToCart(Request $request, $id){
     	$product = Product::find($id);
     	$oldCart = Session::has('cart') ? Session::get('cart') : null;
