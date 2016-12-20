@@ -29,11 +29,12 @@ class ProductController extends Controller
         ]);
     }
 
-    public function getAddToCart(Request $request, $id){
+    public function postAddToCart(Request $request, $id){
     	$product = Product::find($id);
     	$oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $price = $request->input('price');
     	$cart = new Cart($oldCart);
-    	$cart->add($product, $product->id);
+    	$cart->add($product, $product->id, $price);
 
     	$request->session()->put('cart', $cart);
     	return redirect()->route('product.index');
@@ -49,7 +50,7 @@ class ProductController extends Controller
             Session::put('cart', $cart);
         } else {
             Session::forget('cart');
-        }  
+        }
         return redirect()->route('product.shoppingCart');
     }
 
@@ -63,7 +64,7 @@ class ProductController extends Controller
             Session::put('cart', $cart);
         } else {
             Session::forget('cart');
-        }        
+        }
 
         return redirect()->route('product.shoppingCart');
     }
@@ -96,7 +97,7 @@ class ProductController extends Controller
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        
+
         Stripe::setApiKey('sk_test_LjzyPmWo1Z1Qvh52h1oKHQux');
         try {
             $charge = Charge::create(array(

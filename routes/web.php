@@ -22,7 +22,7 @@ Route::get('/product/{id}', [
 ]);
 
 Route::get('/add-to-cart/{id}', [
-	'uses' => 'ProductController@getAddToCart',
+	'uses' => 'ProductController@postAddToCart',
 	'as' => 'product.addToCart'
 ]);
 
@@ -89,6 +89,5 @@ Route::group(['prefix' => 'user'], function() {
 		]);
 	});
 
-	
-});
 
+});
