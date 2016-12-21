@@ -60,7 +60,7 @@
 								<option value='MDF 3mm'>MDF 3mm</option>
 								<option value='MDF 4mm'>MDF 4mm</option>
 								<option value='MDF 6mm'>MDF 6mm</option>
-								<option value='Mulitplex 3mm'>Mulitplex 3mm</option>						
+								<option value='Mulitplex 3mm'>Mulitplex 3mm</option>
 								<option value='Mulitplex 4mm'>Mulitplex 4mm</option>
 								<option value='Mulitplex 6mm'>Mulitplex 6mm</option>
 
@@ -78,15 +78,12 @@
 						<div id="totalPrice">&nbsp;</div>
 						<input type="hidden" id="price" name="price" />
 
-
+						<button class="btn pull-right btn-success" role="submit">Add to cart</a>
 				       </form>
-					<a href="{{ route('product.addToCart', ['id' => $product->id]) }}" class="btn pull-right btn-success" role="button">Add to cart</a>
+
 				</div>
 			</div>
 		</div>
 	</div>
 
 @endsection
-
-
-
